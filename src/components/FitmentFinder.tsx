@@ -30,9 +30,9 @@ export function FitmentFinder() {
       </div>
       <div className="finder-results" aria-live="polite">
         {!submitted ? <div className="result-placeholder"><span className="result-ring">{vehicle.pcd}</span><h3>Ready when you are.</h3><p>We’ll compare bolt pattern, hub bore, diameter, width and offset.</p></div> : confirmed.length ? <>
-          <div className="result-heading fits"><CheckCircle2 /><div><span className="eyebrow">Illustrated result</span><h2>{confirmed.length} confirmed sample {confirmed.length === 1 ? "match" : "matches"}</h2></div></div>
+          <div className="result-heading fits"><CheckCircle2 /><div><span className="eyebrow">Illustrated result</span><h2>{confirmed.length} confirmed sample {confirmed.length === 1 ? "wheel" : "wheels"}</h2></div></div>
           <p className="result-note">This demonstrates the signed-off, stock-height customer path. Production data requires Carport approval.</p>
-          {confirmed.slice(0, 3).map(({ wheel }) => <div className="compact-result" key={wheel.slug}><div><span>{wheel.brand}</span><strong>{wheel.model}</strong><small>{wheel.variants[0].diameter}×{wheel.variants[0].width}J · ET{wheel.variants[0].offset}</small></div><div><b>{peso(wheel.variants[0].pricePerSet)}</b><Link href={`/wheels/${wheel.slug}?vehicle=${vehicle.slug}`}>View wheel</Link></div></div>)}
+          {confirmed.map(({ wheel }) => <div className="compact-result" key={wheel.slug}><div><span>{wheel.brand}</span><strong>{wheel.model}</strong><small>{wheel.variants[0].diameter}×{wheel.variants[0].width}J · ET{wheel.variants[0].offset}</small></div><div><b>{peso(wheel.variants[0].pricePerSet)}</b><Link href={`/wheels/${wheel.slug}?vehicle=${vehicle.slug}`}>View wheel</Link></div></div>)}
         </> : <>
           <div className="result-heading check"><AlertTriangle /><div><span className="eyebrow">Fitter confirmation required</span><h2>Needs our fitter’s confirmation.</h2></div></div>
           <p className="result-note">{staff[0]?.result.reasons[0] ?? "No safe automated match is available for this illustrated setup."}</p>
