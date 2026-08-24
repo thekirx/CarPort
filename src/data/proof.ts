@@ -4,7 +4,11 @@ export const builds = [
   { image: "/images/social/carport-social-14.jpg", vehicle: "Toyota MPV", detail: "VLF wheel and tyre package" },
   { image: "/images/social/carport-social-03.jpg", vehicle: "Toyota SUV", detail: "Shop-floor wheel installation" },
   { image: "/images/social/carport-social-09.jpg", vehicle: "GAC GS8", detail: "Multi-spoke street fitment" },
-  { image: "/images/social/carport-social-18.jpg", vehicle: "SUV service", detail: "Installed and checked in-shop" }
+  { image: "/images/social/carport-social-18.jpg", vehicle: "SUV service", detail: "Installed and checked in-shop" },
+  { image: "/images/social/carport-build-byd-shark-6.jpg", vehicle: "BYD Shark 6", detail: "Profender Queen Series suspension setup" },
+  { image: "/images/social/carport-build-tesla-cybertruck.jpg", vehicle: "Tesla", detail: "Cybertruck · 24-inch wheel fitment" },
+  { image: "/images/social/carport-build-mazda-3.jpg", vehicle: "Mazda 3", detail: "Red street build · wheel fitment" },
+  { image: "/images/social/carport-build-corvette.jpg", vehicle: "Chevrolet Corvette", detail: "Yellow C7 · black wheel package" }
 ] as const;
 
 export const reviews = [

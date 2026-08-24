@@ -57,3 +57,13 @@ test("keeps the mobile wheel catalogue heading within a compact first fold", asy
   expect(card).not.toBeNull();
   expect(card!.y).toBeLessThanOrEqual(900);
 });
+
+test("shows the four requested customer builds", async ({ page }) => {
+  await page.goto("/builds");
+
+  const gallery = page.locator(".build-grid");
+  await expect(gallery.getByText("BYD Shark 6", { exact: true })).toBeVisible();
+  await expect(gallery.getByText("Tesla", { exact: true })).toBeVisible();
+  await expect(gallery.getByText("Mazda 3", { exact: true })).toBeVisible();
+  await expect(gallery.getByText("Chevrolet Corvette", { exact: true })).toBeVisible();
+});
