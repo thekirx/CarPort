@@ -9,7 +9,7 @@ import { wheels } from "@/data/wheels";
 export default function HomePage() {
   return <>
     <section className="hero">
-      <Image src="/images/social/carport-social-03.jpg" alt="Toyota SUV inside the illuminated Carport Wheels workshop" fill priority sizes="100vw" />
+      <Image src="/images/social/carport-storefront.jpg" alt="The Carport Wheels storefront on West Avenue at dusk, illuminated sign above the display floor" fill priority sizes="100vw" />
       <div className="hero-shade" />
       <div className="container hero-content">
         <div className="hero-copy"><span className="eyebrow light">WEST AVENUE · QUEZON CITY</span><h1>FITTED<br /><em>RIGHT.</em></h1><p>Real brands. Honest specs. A wheel and tyre setup checked for your actual car—not guessed from a photo.</p><div className="hero-actions"><Link className="button primary" href="/fitment">Will this fit my car? <ArrowRight size={18} /></Link><Link className="button ghost" href="/wheels">Browse wheels</Link></div></div>
