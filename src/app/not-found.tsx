@@ -1,0 +1,2 @@
+import Link from "next/link";
+export default function NotFound() { return <section className="section concrete"><div className="container empty-state"><span className="eyebrow">404 · OFF FITMENT</span><h1>That page doesn’t line up.</h1><p>Return to the wheel catalogue or start with your vehicle.</p><div><Link className="button primary" href="/fitment">Fitment finder</Link> <Link className="button secondary" href="/wheels">Browse wheels</Link></div></div></section>; }

@@ -23,7 +23,7 @@
 - Demo customer data remains local to the browser and is never transmitted.
 - Demo deployments are `noindex, nofollow` and disallow crawling.
 - Respect `prefers-reduced-motion` and meet WCAG AA contrast on every rendered pairing.
-- Use Image Gen for the complete visual concept and central wheel/build imagery before implementing the visible surfaces.
+- Build the complete visual concept directly in code and use only authentic Carport Wheels social-media photography for vehicles, wheels, workshop scenes, staff, and supporting imagery. Record sources in the repository; do not generate AI photography.
 - Do not deploy, create an external repository, or change a domain without explicit user authorization.
 
 ---
@@ -348,7 +348,7 @@ git commit -m "feat: add guarded fitment evaluation engine"
 
 ---
 
-### Task 4: Complete Visual Concept and Production Assets
+### Task 4: Complete Visual Concept and Authentic Production Assets
 
 **Files:**
 - Create: `design/concepts/carport-home-desktop.png`
@@ -364,7 +364,7 @@ git commit -m "feat: add guarded fitment evaluation engine"
 - Produces: accepted visual reference images, central wheel/build assets, and replaceable `Mark`/`Wordmark` components.
 - Consumes: brand tokens and exact approved copy from the spec.
 
-- [ ] **Step 1: Generate the complete storefront concept before UI coding**
+- [ ] **Step 1: Build the complete storefront concept directly in code**
 
 Use the image-generation workflow to create a full desktop homepage, full mobile homepage, fitment workflow state, and product-detail state. The images must use the exact crimson/wine/midnight palette, broad Archivo-like display proportion, mono specifications, realistic premium wheel imagery, open section rhythm, and no generic dashboard-card aesthetic.
 
@@ -372,7 +372,7 @@ Use the image-generation workflow to create a full desktop homepage, full mobile
 
 Use `view_image` and record the accepted first-viewport composition, section order, typography hierarchy, spacing, media crops, button treatment, and mobile continuation. Regenerate any concept containing unreadable copy, invented branding, excessive decorative UI, or a palette mismatch.
 
-- [ ] **Step 3: Generate standalone wheel and fitted-car assets**
+- [ ] **Step 3: Select and optimize authentic Carport social-media wheel and fitted-car assets**
 
 Create consistent isolated wheel renders and portfolio-style fitted-car images that match the concept lighting and framing. Images must not contain fabricated Carport logos or readable third-party claims.
 
@@ -766,4 +766,3 @@ git commit -m "test: verify Carport storefront experience"
 - [ ] Demo mode remains noindex and the demo guard passes.
 - [ ] Tests, type checking, linting, and production build pass.
 - [ ] README accurately explains GitHub and Vercel handoff without claiming deployment.
-

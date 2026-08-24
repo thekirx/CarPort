@@ -80,6 +80,8 @@ Typography uses Archivo for display and body copy, with the display width axis s
 
 The existing Carport monogram is represented by a clearly isolated placeholder component until the approved master vector is supplied. It must be replaceable in one file.
 
+Photography uses authentic imagery from Carport Wheels' own Facebook gallery, with the source recorded in the repository. No AI-generated vehicle, wheel, workshop, or staff photography is used. Social images may be cropped and colour-treated for layout, but must not be altered in a way that misrepresents a product or fitment outcome.
+
 ### Voice
 
 Confident, specific shop-floor English and Taglish. Fitment specifications lead; hype, emoji walls, fake urgency, and unsupported authenticity claims are avoided.
@@ -199,4 +201,3 @@ All product names, prices, stock levels, reviews, and fitment details remain sam
 The repository will include setup and deployment instructions. It will be suitable for a GitHub repository connected to Vercel, with preview deployments produced from branches or pull requests and the production deployment updated from the selected main branch.
 
 No deployment, external repository creation, or domain change is performed without explicit user authorization.
-
