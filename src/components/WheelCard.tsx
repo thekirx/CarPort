@@ -14,7 +14,12 @@ export function WheelCard({ wheel }: { wheel: Wheel }) {
       <div className="wheel-card-body">
         <div className="card-top"><span>{wheel.brand}</span><span className={`stock ${variant.stock}`}>{stockLabel(variant.stock)}</span></div>
         <h3><Link href={`/wheels/${wheel.slug}`}>{wheel.model}</Link></h3>
-        <p className="spec-line">{variant.diameter}×{variant.width}J · ET{variant.offset} · {variant.pcd}</p>
+        <dl className="spec-grid">
+          <div><dt>Dia</dt><dd>{variant.diameter}<small>&quot;</small></dd></div>
+          <div><dt>Width</dt><dd>{variant.width}<small>J</small></dd></div>
+          <div><dt>Offset</dt><dd>{variant.offset > 0 ? "+" : ""}{variant.offset}</dd></div>
+          <div><dt>PCD</dt><dd>{variant.pcd.replace("x", "×")}</dd></div>
+        </dl>
         <div className="price-row"><strong>{peso(variant.pricePerSet)}</strong><span>sample set of 4</span></div>
       </div>
     </article>

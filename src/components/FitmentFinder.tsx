@@ -1,13 +1,29 @@
 "use client";
 
 import Link from "next/link";
-import { AlertTriangle, CheckCircle2, ChevronRight, ShieldCheck } from "lucide-react";
+import { AlertTriangle, Check, CheckCircle2, ChevronRight, ShieldCheck, X } from "lucide-react";
 import { useMemo, useState } from "react";
-import type { Suspension } from "@/data/types";
+import type { FitmentCheck, Suspension } from "@/data/types";
 import { vehicles } from "@/data/vehicles";
 import { wheels } from "@/data/wheels";
 import { evaluateFitment } from "@/lib/fitment";
 import { peso } from "@/lib/format";
+
+function FitRecord({ checks }: { checks: FitmentCheck[] }) {
+  return (
+    <dl className="fit-record">
+      {checks.map((check) => (
+        <div key={check.label}>
+          <dt>{check.label}</dt>
+          <dd>
+            {check.value}
+            {check.pass ? <Check className="tick" size={13} aria-label="pass" /> : <X className="cross" size={13} aria-label="needs checking" />}
+          </dd>
+        </div>
+      ))}
+    </dl>
+  );
+}
 
 export function FitmentFinder() {
   const [vehicleSlug, setVehicleSlug] = useState("mazda-3");
@@ -31,10 +47,13 @@ export function FitmentFinder() {
       <div className="finder-results" aria-live="polite">
         {!submitted ? <div className="result-placeholder"><span className="result-ring">{vehicle.pcd}</span><h3>Ready when you are.</h3><p>We’ll compare bolt pattern, hub bore, diameter, width and offset.</p></div> : confirmed.length ? <>
           <div className="result-heading fits"><CheckCircle2 /><div><span className="eyebrow">Illustrated result</span><h2>{confirmed.length} confirmed sample {confirmed.length === 1 ? "wheel" : "wheels"}</h2></div></div>
-          <p className="result-note">This demonstrates the signed-off, stock-height customer path. Production data requires Carport approval.</p>
+          <p className="fit-record-title">What we checked — {confirmed[0].wheel.brand} {confirmed[0].wheel.model}</p>
+          <FitRecord checks={confirmed[0].result.checks} />
+          <p className="result-note">Every wheel below cleared the same five checks against your {vehicle.make} {vehicle.model}. Production data requires Carport approval.</p>
           {confirmed.map(({ wheel }) => <div className="compact-result" key={wheel.slug}><div><span>{wheel.brand}</span><strong>{wheel.model}</strong><small>{wheel.variants[0].diameter}×{wheel.variants[0].width}J · ET{wheel.variants[0].offset}</small></div><div><b>{peso(wheel.variants[0].pricePerSet)}</b><Link href={`/wheels/${wheel.slug}?vehicle=${vehicle.slug}`}>View wheel</Link></div></div>)}
         </> : <>
           <div className="result-heading check"><AlertTriangle /><div><span className="eyebrow">Fitter confirmation required</span><h2>Needs our fitter’s confirmation.</h2></div></div>
+          {staff[0] ? <><p className="fit-record-title">How far we got — {staff[0].wheel.brand} {staff[0].wheel.model}</p><FitRecord checks={staff[0].result.checks} /></> : null}
           <p className="result-note">{staff[0]?.result.reasons[0] ?? "No safe automated match is available for this illustrated setup."}</p>
           {staff.slice(0, 3).map(({ wheel }) => <div className="compact-result check" key={wheel.slug}><div><span>{wheel.brand}</span><strong>{wheel.model}</strong><small>Candidate only · not confirmed</small></div><a className="text-link" href="https://www.facebook.com/people/Carport-Wheels/61558977561141/" target="_blank" rel="noreferrer">Send to shop</a></div>)}
           <div className="staff-gate"><strong>Reservation stays locked.</strong><span>Send a side photo, current wheel/tyre specs, and any suspension or brake changes.</span></div>

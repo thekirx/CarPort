@@ -41,8 +41,16 @@ export interface Vehicle {
   sample: true;
 }
 
+export interface FitmentCheck {
+  label: string;
+  value: string;
+  pass: boolean;
+}
+
 export interface FitmentResult {
   verdict: "fits" | "staff_check" | "no_fit";
   reasons: string[];
   clearanceNote?: string;
+  /** The engine's working, shown to the customer. Order matches the rule order. */
+  checks: FitmentCheck[];
 }
